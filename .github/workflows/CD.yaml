@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: '18'
       - name: Install dependencies
-        working-directory: ./server
         run: npm install
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: Build and Push Docker Image
