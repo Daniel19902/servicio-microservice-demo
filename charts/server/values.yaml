@@ -1,0 +1,14 @@
+replicaCount: 1
+image:
+  repository: myregistry/microservice-demo
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources: {}
+env: {
+  SERVICE_NAME : "microservice-demo"
+ }

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servicio-microservice-demo
+  labels: 
+    app: servicio-microservice-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: servicio-microservice-demo
+  template:
+    metadata:
+      labels:
+        app: servicio-microservice-demo
+    spec:
+      containers:
+        - name: servicio-microservice-demo
+          image: serve/microservice_v.3:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          env:
+            - name: SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "500m"
