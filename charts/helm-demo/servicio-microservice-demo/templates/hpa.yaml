@@ -2,6 +2,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
+  namespace: {{ .Values.environments }}
   name: {{ include "servicio-microservice-demo.fullname" . }}
   labels:
     {{- include "servicio-microservice-demo.labels" . | nindent 4 }}

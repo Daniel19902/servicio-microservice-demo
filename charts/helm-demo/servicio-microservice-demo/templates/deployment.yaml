@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: {{ .Values.environments }}
   name: {{ include "servicio-microservice-demo.fullname" . }}
   labels:
     {{- include "servicio-microservice-demo.labels" . | nindent 4 }}
