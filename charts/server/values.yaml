@@ -5,10 +5,7 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  type: ClusterIP
-  port: 3000
+  type: LoadBalancer
+  port: 4530
 
-resources: {}
-env: {
-  SERVICE_NAME : "microservice-demo"
- }
+environments: qa

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: dev
+  namespace: {{ .Values.environments }}
   name: servicio-microservice-demo
   labels: 
     app: servicio-microservice-demo
