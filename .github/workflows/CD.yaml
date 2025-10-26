@@ -27,8 +27,7 @@ jobs:
         with:
           image: darkeater/actividad4
           tags: 1.2.0,latest
-          dockerfile: ./server/Dockerfile
-          context: ./server
+          dockerfile: Dockerfile
           registry: docker.io
           username: darkeater
           password: daniel1234
