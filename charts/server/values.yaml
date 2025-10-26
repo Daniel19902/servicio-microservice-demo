@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: myregistry/microservice-demo
-  tag: 1.4.28
+  tag: 1.4.29
   pullPolicy: IfNotPresent
 
 service:
