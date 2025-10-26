@@ -24,8 +24,8 @@ jobs:
             docker push darkeater/actividad4:latest
 
       - run:
-          name: Actualizar tag en Helm values.yaml
-          command: sed -i "s/tag:.*/tag: 1.5.0/" charts/server/values.yaml
+        name: Actualizar tag en Helm values.yaml
+        command: 'sed -i "s/tag:.*/tag: 1.5.0/" charts/server/values.yaml'
 
       - run:
           name: Commit and Push Helm Update
