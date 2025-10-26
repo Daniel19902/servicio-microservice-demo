@@ -1,10 +1,6 @@
-FROM node:18
-
+FROM python:3.10-slim
 WORKDIR /app
-
-COPY server/package*.json ./
-RUN npm install
-
-COPY server/. .
-
-CMD ["node", "index.js"]
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "index.py"]

@@ -1,9 +1,5 @@
 version: 2.1
 
-executors:
-  docker-executor:
-    docker:
-      - image: cimg/node:18.17.1  # ✅ Usa una imagen con Node.js preinstalado
 
 jobs:
   build-and-deploy:
@@ -17,10 +13,11 @@ jobs:
       - checkout
 
       - run:
-          name: Install dependencies
+          name: Install Python and dependencies
           command: |
-            cd server
-            npm install
+            sudo apt update
+            sudo apt install -y python3 python3-pip
+            pip3 install flask
 
       - run:
           name: Build and Push Docker Image
