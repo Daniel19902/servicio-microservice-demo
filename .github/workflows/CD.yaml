@@ -18,3 +18,12 @@ jobs:
       - name: Install dependencies
         working-directory: ./server
         run: npm install
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: Build and Push Docker Image
+        with:
+          image: darkeater/actividad4
+          tags: 1.0.0,latest
+          dockerfile: ./server/Dockerfile
+          registry: docker.io
+          username: darkeater
+          password: daniel1234
