@@ -18,6 +18,9 @@ jobs:
       - name: Install dependencies
         working-directory: ./server
         run: npm install
+      - name: Compute short SHA
+        id: vars
+        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: Build and Push Docker Image
         id: docker_build
@@ -33,16 +36,13 @@ jobs:
       - name: Set image tag variable
         run: echo "IMAGE_TAG=1.4.0" >> $GITHUB_ENV
 
-      - name: Update Helm values.yaml
+      - name: Commit & push
         run: |
-          sed -i "s/tag:.*/tag: ${IMAGE_TAG}/" charts/server/values.yaml
-
-      - name: Commit and Push Helm update
-        run: |
-          git config --global user.email "zoe19902@gmail.com"
-          git config --global user.name "Daniel19902"
-          git add charts/server/values.yaml
-          git commit -m "Update image tag to ${IMAGE_TAG}"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "./charts/server/values.yaml"
+          git commit -m "ci: image -> ${IMAGE_REPO}:${{ steps.vars.outputs.SHORT_SHA }}" || echo "No changes to commit"
           git push
+
 
 
