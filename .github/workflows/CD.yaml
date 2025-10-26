@@ -35,7 +35,7 @@ jobs:
 
       - name: Update Helm values.yaml
         run: |
-          sed -i "s/tag:.*/tag: ${IMAGE_TAG}/" helm-chart/values.yaml
+          sed -i "s/tag:.*/tag: ${IMAGE_TAG}/" charts/helm-demo/servicio-microservice-demo/values.yaml
 
       - name: Commit and Push Helm update
         run: |
