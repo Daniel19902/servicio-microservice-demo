@@ -18,7 +18,6 @@ spec:
       containers:
         - name: servicio-microservice-demo
           image: serve/microservice_v.3:latest
-          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           env:
