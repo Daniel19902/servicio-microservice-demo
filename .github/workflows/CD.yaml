@@ -36,6 +36,10 @@ jobs:
       - name: Set image tag variable
         run: echo "IMAGE_TAG=1.4.0" >> $GITHUB_ENV
 
+      - name: Update Helm values.yaml
+        run: |
+          sed -i "s/tag:.*/tag: 1.4.0/" helm-chart/values.yaml
+
       - name: Commit & push
         run: |
           git config user.name  "github-actions[bot]"
