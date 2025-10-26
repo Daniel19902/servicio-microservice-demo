@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: servicio-microservice-demo
-          image: darkeater/actividad4:latest
+          image: serve/microservice_v.3:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
