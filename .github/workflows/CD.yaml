@@ -22,7 +22,7 @@ jobs:
         name: Build and Push Docker Image
         with:
           image: darkeater/actividad4
-          tags: 1.0.0,latest
+          tags: 1.1.0,latest
           dockerfile: ./server/Dockerfile
           registry: docker.io
           username: darkeater

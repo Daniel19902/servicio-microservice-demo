@@ -6,7 +6,7 @@ metadata:
   labels: 
     app: servicio-microservice-demo
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: servicio-microservice-demo
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: servicio-microservice-demo
-          image: darkeater/actividad4:latest
+          image: test/actividad4:latest
           ports:
             - containerPort: 3000
           env:
