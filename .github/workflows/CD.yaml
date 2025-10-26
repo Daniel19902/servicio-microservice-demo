@@ -20,6 +20,7 @@ jobs:
         run: npm install
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: Build and Push Docker Image
+        id: docker_build
         with:
           image: darkeater/actividad4
           tags: 1.4.0,latest
@@ -29,3 +30,19 @@ jobs:
           password: daniel1234
           context: ./server
           pushImage: true
+      - name: Set image tag variable
+        run: echo "IMAGE_TAG=1.4.0" >> $GITHUB_ENV
+
+      - name: Update Helm values.yaml
+        run: |
+          sed -i "s/tag:.*/tag: ${IMAGE_TAG}/" helm-chart/values.yaml
+
+      - name: Commit and Push Helm update
+        run: |
+          git config --global user.email "zoe1990@gmail.com"
+          git config --global user.name "Daniel19902"
+          git add charts/helm-demo/servicio-microservice-demo/values.yaml
+          git commit -m "Update image tag to ${IMAGE_TAG}"
+          git push
+
+
