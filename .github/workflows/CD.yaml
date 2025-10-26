@@ -39,7 +39,7 @@ jobs:
 
       - name: Commit and Push Helm update
         run: |
-          git config --global user.email "zoe1990@gmail.com"
+          git config --global user.email "zoe19902@gmail.com"
           git config --global user.name "Daniel19902"
           git add charts/helm-demo/servicio-microservice-demo/values.yaml
           git commit -m "Update image tag to ${IMAGE_TAG}"
