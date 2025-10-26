@@ -33,5 +33,5 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: 3000
+              port: 4530
             initialDelaySeconds: 5
