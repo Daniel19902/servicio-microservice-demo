@@ -27,3 +27,4 @@ jobs:
           registry: docker.io
           username: darkeater
           password: daniel1234
+          push: true
