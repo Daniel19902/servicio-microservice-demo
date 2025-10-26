@@ -8,4 +8,5 @@ service:
   type: LoadBalancer
   port: 4530
 
+
 environments: qa
