@@ -15,7 +15,7 @@ def health():
 
 @app.route("/hello")
 def hello():
-    return f"Hello world from argo v4 {service_name}"
+    return f"Hello world from argo v5 {service_name}"
 
 if __name__ == "__main__":
     print(f"Listening on port {port}")
