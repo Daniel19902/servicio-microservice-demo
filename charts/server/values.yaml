@@ -1,7 +1,7 @@
 replicaCount: 3
 image:
   repository: darkeater/actividad4
-  tag: 1.4.61
+  tag: 1.4.63
   pullPolicy: IfNotPresent
 
 service:
