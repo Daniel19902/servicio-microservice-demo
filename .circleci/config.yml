@@ -47,4 +47,9 @@ workflows:
   version: 2
   deploy:
     jobs:
-      - build-and-deploy
+      - build-and-deploy:
+          filters:
+            branches:
+              only: main
+            tags:
+              ignore: /.*/
