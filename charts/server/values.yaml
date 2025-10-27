@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: myregistry/microservice-demo
+  repository: darkeater/actividad4
   tag: 1.4.56
   pullPolicy: IfNotPresent
 
